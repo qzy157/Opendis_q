@@ -10,3 +10,8 @@ cmake/sys.cmake.ext
 # Bccti 运行产物（数据保留在 HPC 本地，不进 git）
 bccTi/relax_*/output/
 bccTi/relax_*/slurm-*.out
+
+# 例外：保留这三个 output 目录下的 .dat 文件
+!bccTi/high_t/output/**/*.dat
+!bccTi/low_t/output/**/*.dat
+!bccTi/low_t_const/output/**/*.dat
