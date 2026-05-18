@@ -39,10 +39,10 @@ def bcc_Ti_3um_3e3():
         "a": 1.0,#晶格常数，单位为米（m），表示晶体结构中原子之间的距离。
         "maxseg": 720.0,
         "minseg": 240.0,
-        "rtol": 0.5,#相对误差容限，控制数值计算的精度。
+        "rtol": 0.1,#相对误差容限，控制数值计算的精度。收紧到 0.1（原 0.5 太宽，导致外层 dt 每步 ×1.2 暴涨）
         "rann": 0.5,#邻近距离，单位为米（m），用于判断位错线段之间是否相互作用。
         "nextdt": 1e-12,
-        "maxdt": 1e-7,
+        "maxdt": 1e-9,#外层时间步上限。原 1e-7 配合 vmax=3400 m/s 子循环数爆炸，单步 ~5h；压到 1e-9，每外层步应变增量 3e-6 仍够粗。
         "split3node": 0,#是否允许在三节点处进行分割，0 表示不允许，1 表示允许。
         "use_glide_planes": 1,#1表示位错线段的运动约束到滑移面上。如果设置为0位错就可以在任意方向上运动，交滑移模块就无法进行。
         "num_bcc_plane_families": 1,#BCC晶体的滑移面族数量。仅仅启动{110}滑移面族，覆盖了BCC类型的默认行为。
@@ -95,8 +95,8 @@ def bcc_Ti_3um_3e3():
                               collision=collision, topology=topology, remesh=remesh, cross_slip=cross_slip,
                               vis=vis, loading_mode='strain_rate', erate=erate, edir=np.array([0.,0.,1.]),# edir 定义了应变的方向，这里是沿着 z 轴施加拉伸。
                               max_strain=0.1, burgmag=state["burgmag"], state=state,
-                              print_freq=1, plot_freq=1, plot_pause_seconds=0.0001,#print_freq 定义了每隔多少步打印一次模拟信息，plot_freq 定义了每隔多少步更新一次可视化，plot_pause_seconds 定义了每次更新可视化时的暂停时间，以确保动画的流畅性。
-                              write_freq=1, write_dir=output_dir, restart=restart)#每 100 步保存一次数据
+                              print_freq=10, plot_freq=10, plot_pause_seconds=0.0001,#print_freq 定义了每隔多少步打印一次模拟信息，plot_freq 定义了每隔多少步更新一次可视化，plot_pause_seconds 定义了每次更新可视化时的暂停时间，以确保动画的流畅性。
+                              write_freq=10, write_dir=output_dir, restart=restart)#每 10 步保存一次数据
     sim.run(net, state)
 
     pyexadis.finalize()
