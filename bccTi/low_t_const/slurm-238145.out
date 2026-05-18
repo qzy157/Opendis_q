@@ -1,3 +1,12 @@
+Host Parallel Execution Space:
+  KOKKOS_ENABLE_OPENMP: yes
+
+OpenMP Runtime Configuration:
+Kokkos::OpenMP thread_pool_topology[ 1 x 1 x 1 ]
+Reading ParaDiS configuration
+ Input file: ../relax_low_t/output/config.90000.data
+ nodes: 941, segments: 851
+ Warning: Burgers vector is not conserved for 180 node(s)
 Step =      0: nodes = 941, dt = 0.000000e+00, strain = 0.000000e+00, elapsed = 0.1 sec
 Writing configuration in legacy data format
  Output file: output/config.0.data
@@ -175,4 +184,133 @@ Writing configuration in legacy data format
 Writing restart file
  Restart file: output/restart.34.exadis
 Step =     35: nodes = 912, dt = 4.922235e-10, strain = 8.845023e-06, elapsed = 432.3 sec
-Writing configuration in legacy data forma
+Writing configuration in legacy data format
+ Output file: output/config.35.data
+Writing restart file
+ Restart file: output/restart.35.exadis
+Step =     36: nodes = 916, dt = 5.906682e-10, strain = 1.061703e-05, elapsed = 510.4 sec
+Writing configuration in legacy data format
+ Output file: output/config.36.data
+Writing restart file
+ Restart file: output/restart.36.exadis
+Step =     37: nodes = 913, dt = 7.088019e-10, strain = 1.274343e-05, elapsed = 611.4 sec
+Writing configuration in legacy data format
+ Output file: output/config.37.data
+Writing restart file
+ Restart file: output/restart.37.exadis
+Step =     38: nodes = 913, dt = 8.505622e-10, strain = 1.529512e-05, elapsed = 747.1 sec
+Writing configuration in legacy data format
+ Output file: output/config.38.data
+Writing restart file
+ Restart file: output/restart.38.exadis
+Step =     39: nodes = 913, dt = 1.020675e-09, strain = 1.835714e-05, elapsed = 891.9 sec
+Writing configuration in legacy data format
+ Output file: output/config.39.data
+Writing restart file
+ Restart file: output/restart.39.exadis
+Step =     40: nodes = 910, dt = 1.224810e-09, strain = 2.203157e-05, elapsed = 1080.8 sec
+Writing configuration in legacy data format
+ Output file: output/config.40.data
+Writing restart file
+ Restart file: output/restart.40.exadis
+Step =     41: nodes = 911, dt = 1.469772e-09, strain = 2.644089e-05, elapsed = 1294.9 sec
+Writing configuration in legacy data format
+ Output file: output/config.41.data
+Writing restart file
+ Restart file: output/restart.41.exadis
+Step =     42: nodes = 919, dt = 1.763726e-09, strain = 3.173207e-05, elapsed = 1559.0 sec
+Writing configuration in legacy data format
+ Output file: output/config.42.data
+Writing restart file
+ Restart file: output/restart.42.exadis
+Step =     43: nodes = 924, dt = 2.116471e-09, strain = 3.808148e-05, elapsed = 1879.5 sec
+Writing configuration in legacy data format
+ Output file: output/config.43.data
+Writing restart file
+ Restart file: output/restart.43.exadis
+Step =     44: nodes = 918, dt = 2.539765e-09, strain = 4.570077e-05, elapsed = 2271.8 sec
+Writing configuration in legacy data format
+ Output file: output/config.44.data
+Writing restart file
+ Restart file: output/restart.44.exadis
+Step =     45: nodes = 916, dt = 3.047718e-09, strain = 5.484393e-05, elapsed = 2737.1 sec
+Writing configuration in legacy data format
+ Output file: output/config.45.data
+Writing restart file
+ Restart file: output/restart.45.exadis
+Step =     46: nodes = 921, dt = 3.657262e-09, strain = 6.581572e-05, elapsed = 3320.0 sec
+Writing configuration in legacy data format
+ Output file: output/config.46.data
+Writing restart file
+ Restart file: output/restart.46.exadis
+Step =     47: nodes = 926, dt = 4.388714e-09, strain = 7.898186e-05, elapsed = 4095.9 sec
+Writing configuration in legacy data format
+ Output file: output/config.47.data
+Writing restart file
+ Restart file: output/restart.47.exadis
+Step =     48: nodes = 939, dt = 5.266457e-09, strain = 9.478123e-05, elapsed = 5069.0 sec
+Writing configuration in legacy data format
+ Output file: output/config.48.data
+Writing restart file
+ Restart file: output/restart.48.exadis
+Step =     49: nodes = 950, dt = 6.319749e-09, strain = 1.137405e-04, elapsed = 6308.8 sec
+Writing configuration in legacy data format
+ Output file: output/config.49.data
+Writing restart file
+ Restart file: output/restart.49.exadis
+Step =     50: nodes = 972, dt = 7.583698e-09, strain = 1.364916e-04, elapsed = 8234.3 sec
+Writing configuration in legacy data format
+ Output file: output/config.50.data
+Writing restart file
+ Restart file: output/restart.50.exadis
+Step =     51: nodes = 972, dt = 9.100438e-09, strain = 1.637929e-04, elapsed = 10320.9 sec
+Writing configuration in legacy data format
+ Output file: output/config.51.data
+Writing restart file
+ Restart file: output/restart.51.exadis
+Step =     52: nodes = 974, dt = 1.092053e-08, strain = 1.965545e-04, elapsed = 12366.4 sec
+Writing configuration in legacy data format
+ Output file: output/config.52.data
+Writing restart file
+ Restart file: output/restart.52.exadis
+Step =     53: nodes = 990, dt = 1.310463e-08, strain = 2.358684e-04, elapsed = 15178.0 sec
+Writing configuration in legacy data format
+ Output file: output/config.53.data
+Writing restart file
+ Restart file: output/restart.53.exadis
+Step =     54: nodes = 1018, dt = 1.572556e-08, strain = 2.830450e-04, elapsed = 18050.5 sec
+Writing configuration in legacy data format
+ Output file: output/config.54.data
+Writing restart file
+ Restart file: output/restart.54.exadis
+Step =     55: nodes = 1053, dt = 1.887067e-08, strain = 3.396570e-04, elapsed = 21810.3 sec
+Writing configuration in legacy data format
+ Output file: output/config.55.data
+Writing restart file
+ Restart file: output/restart.55.exadis
+Step =     56: nodes = 1087, dt = 2.264480e-08, strain = 4.075914e-04, elapsed = 26839.3 sec
+Writing configuration in legacy data format
+ Output file: output/config.56.data
+Writing restart file
+ Restart file: output/restart.56.exadis
+Step =     57: nodes = 1145, dt = 2.717376e-08, strain = 4.891127e-04, elapsed = 33232.9 sec
+Writing configuration in legacy data format
+ Output file: output/config.57.data
+Writing restart file
+ Restart file: output/restart.57.exadis
+Step =     58: nodes = 1267, dt = 3.260852e-08, strain = 5.869383e-04, elapsed = 43025.4 sec
+Writing configuration in legacy data format
+ Output file: output/config.58.data
+Writing restart file
+ Restart file: output/restart.58.exadis
+Step =     59: nodes = 1472, dt = 3.913022e-08, strain = 7.043289e-04, elapsed = 59032.5 sec
+Writing configuration in legacy data format
+ Output file: output/config.59.data
+Writing restart file
+ Restart file: output/restart.59.exadis
+Step =     60: nodes = 1811, dt = 4.695626e-08, strain = 8.451977e-04, elapsed = 79871.6 sec
+Writing configuration in legacy data format
+ Output file: output/config.60.data
+Writing restart file
+ Restart file: output/restart.60.exadis
+slurmstepd-c2n245: error: *** JOB 238145 ON c2n245 CANCELLED AT 2026-05-18T15:55:57 ***
