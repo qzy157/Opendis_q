@@ -39,10 +39,10 @@ def bcc_Ti_3um_3e3():
         "a": 1.0,
         "maxseg": 720.0,
         "minseg": 240.0,
-        "rtol": 0.5,
+        "rtol": 0.05,   # 原 0.5 太宽,外层 dt 每步 ×1.2 暴涨,Subcycling 内循环数 ~ vmax·dt/minseg 失控;低温位错速度低,容差再激进一档
         "rann": 0.5,
         "nextdt": 1e-12,
-        "maxdt": 1e-7,
+        "maxdt": 5e-10,  # 原 1e-7 配合 vmax=3400 m/s 子循环数爆炸,单步 ~22h;压到 5e-10,每外层步应变增量 1.5e-6 已足够粗
         "split3node": 0,
         "use_glide_planes": 1,
         "num_bcc_plane_families": 1,
@@ -95,8 +95,8 @@ def bcc_Ti_3um_3e3():
                               collision=collision, topology=topology, remesh=remesh, cross_slip=cross_slip,
                               vis=vis, loading_mode='strain_rate', erate=erate, edir=np.array([0.,0.,1.]),
                               max_strain=0.1, burgmag=state["burgmag"], state=state,
-                              print_freq=1, plot_freq=1, plot_pause_seconds=0.0001,
-                              write_freq=1, write_dir=output_dir, restart=restart)
+                              print_freq=10, plot_freq=10, plot_pause_seconds=0.0001,
+                              write_freq=10, write_dir=output_dir, restart=restart)
     sim.run(net, state)
 
     pyexadis.finalize()
