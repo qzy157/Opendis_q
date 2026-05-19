@@ -1,0 +1,86 @@
+Host Parallel Execution Space:
+  KOKKOS_ENABLE_OPENMP: yes
+
+OpenMP Runtime Configuration:
+Kokkos::OpenMP thread_pool_topology[ 1 x 48 x 1 ]
+Reading ParaDiS configuration
+ Input file: ../relax_high_t/output/config.90000.data
+ nodes: 927, segments: 837
+ Warning: Burgers vector is not conserved for 180 node(s)
+Step =      0: nodes = 927, dt = 0.000000e+00, strain = 0.000000e+00, elapsed = 0.4 sec
+Writing configuration in legacy data format
+ Output file: output/config.0.data
+Writing restart file
+ Restart file: output/restart.0.exadis
+Run until reaching strain = 0.100000
+Step =     10: nodes = 892, dt = 5.159780e-12, strain = 7.787605e-08, elapsed = 32.3 sec
+Writing configuration in legacy data format
+ Output file: output/config.10.data
+Writing restart file
+ Restart file: output/restart.10.exadis
+Step =     20: nodes = 891, dt = 3.194800e-11, strain = 5.600640e-07, elapsed = 145.1 sec
+Writing configuration in legacy data format
+ Output file: output/config.20.data
+Writing restart file
+ Restart file: output/restart.20.exadis
+Step =     30: nodes = 890, dt = 1.978136e-10, strain = 3.545645e-06, elapsed = 699.9 sec
+Writing configuration in legacy data format
+ Output file: output/config.30.data
+Writing restart file
+ Restart file: output/restart.30.exadis
+Step =     40: nodes = 892, dt = 1.000000e-09, strain = 2.129512e-05, elapsed = 4962.0 sec
+Writing configuration in legacy data format
+ Output file: output/config.40.data
+Writing restart file
+ Restart file: output/restart.40.exadis
+Step =     50: nodes = 895, dt = 1.000000e-09, strain = 5.129512e-05, elapsed = 10484.9 sec
+Writing configuration in legacy data format
+ Output file: output/config.50.data
+Writing restart file
+ Restart file: output/restart.50.exadis
+Step =     60: nodes = 899, dt = 1.000000e-09, strain = 8.129512e-05, elapsed = 16205.3 sec
+Writing configuration in legacy data format
+ Output file: output/config.60.data
+Writing restart file
+ Restart file: output/restart.60.exadis
+Step =     70: nodes = 906, dt = 1.000000e-09, strain = 1.112951e-04, elapsed = 22234.1 sec
+Writing configuration in legacy data format
+ Output file: output/config.70.data
+Writing restart file
+ Restart file: output/restart.70.exadis
+Step =     80: nodes = 909, dt = 1.000000e-09, strain = 1.412951e-04, elapsed = 28391.3 sec
+Writing configuration in legacy data format
+ Output file: output/config.80.data
+Writing restart file
+ Restart file: output/restart.80.exadis
+Step =     90: nodes = 909, dt = 1.000000e-09, strain = 1.712951e-04, elapsed = 34628.8 sec
+Writing configuration in legacy data format
+ Output file: output/config.90.data
+Writing restart file
+ Restart file: output/restart.90.exadis
+Step =    100: nodes = 908, dt = 1.000000e-09, strain = 2.012951e-04, elapsed = 40979.1 sec
+Writing configuration in legacy data format
+ Output file: output/config.100.data
+Writing restart file
+ Restart file: output/restart.100.exadis
+Step =    110: nodes = 914, dt = 1.000000e-09, strain = 2.312951e-04, elapsed = 50076.4 sec
+Writing configuration in legacy data format
+ Output file: output/config.110.data
+Writing restart file
+ Restart file: output/restart.110.exadis
+Step =    120: nodes = 931, dt = 1.000000e-09, strain = 2.612951e-04, elapsed = 57701.6 sec
+Writing configuration in legacy data format
+ Output file: output/config.120.data
+Writing restart file
+ Restart file: output/restart.120.exadis
+Step =    130: nodes = 946, dt = 1.000000e-09, strain = 2.912951e-04, elapsed = 64653.2 sec
+Writing configuration in legacy data format
+ Output file: output/config.130.data
+Writing restart file
+ Restart file: output/restart.130.exadis
+Step =    140: nodes = 969, dt = 1.000000e-09, strain = 3.212951e-04, elapsed = 71887.2 sec
+Writing configuration in legacy data format
+ Output file: output/config.140.data
+Writing restart file
+ Restart file: output/restart.140.exadis
+slurmstepd-c2n099: error: *** JOB 239283 ON c2n099 CANCELLED AT 2026-05-19T13:54:32 ***
