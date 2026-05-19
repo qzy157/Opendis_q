@@ -11,7 +11,14 @@ cmake/sys.cmake.ext
 bccTi/relax_*/output/
 bccTi/relax_*/slurm-*.out
 
-# 例外：保留这三个 output 目录下的 .dat 文件
+# 例外：保留这些 output 目录下的 .dat 文件和 slurm 日志
 !bccTi/high_t/output/**/*.dat
 !bccTi/low_t/output/**/*.dat
 !bccTi/low_t_const/output/**/*.dat
+!bccTi/high_*/output/**/*.dat
+!bccTi/high_*/slurm-*.out
+!bccTi/low_*/slurm-*.out
+
+# 模拟 restart 和 log 文件，不进 git
+*.exadis
+exadis.log
