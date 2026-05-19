@@ -10,6 +10,7 @@ module purge
 module load miniforge/25.3.1
 source activate opendis_cpu
 
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-48}   # 关键修复：不设这个，Kokkos OpenMP 默认只跑 1 线程(thread_pool_topology[1x1x1])
 export OMP_PROC_BIND=spread
 export OMP_PLACES=threads
 

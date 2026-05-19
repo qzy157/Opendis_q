@@ -64,7 +64,7 @@ def bcc_Ti_3um_3e3():
 
     vis = VisualizeNetwork()#可视化工具，当前设置为 None，表示不使用可视化功能。如果需要进行模拟过程的可视化，可以将 vis 设置为一个适当的可视化对象。
 
-    calforce  = CalForce(force_mode='SUBCYCLING_MODEL', state=state, Ngrid=64, cell=net.cell)#3*3*3 的网格用于计算位错之间的相互作用力。
+    calforce  = CalForce(force_mode='SUBCYCLING_MODEL', state=state, Ngrid=32, cell=net.cell)#3*3*3 的网格用于计算位错之间的相互作用力。
     # 注意：Opendis_q 中温度相关 BCC mobility 注册名为 'BCC_0B_TEMP'（HIT fork 中为 'BCC_0B_temp'）
     mobility  = MobilityLaw(mobility_law='BCC_0B_TEMP', state=state, Mclimb=1e-6, kT=873.19, bT=1073.0, vmax=3400.0)#温度KT=873.19K，bT=1073.0K（起始温度为800℃）
     timeint   = TimeIntegration(integrator='Subcycling', rgroups=[0.0, 100.0, 600.0, 1600.0], state=state, force=calforce, mobility=mobility)#时间积分器，使用子循环方法（Subcycling）来处理不同时间尺度的位错运动。rgroups 定义了不同时间段的分组，用于调整时间步长以适应不同阶段的模拟需求。
