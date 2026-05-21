@@ -1,29 +1,21 @@
+# === 通用构建/缓存产物 ===
 __pycache__
 *.o
 build
 cmake/sys.cmake.ext
 *.png
-*.dat
-*.txt
-*.data
 
-# Bccti 运行产物（数据保留在 HPC 本地，不进 git）
-bccTi/relax_*/output/
-bccTi/relax_*/slurm-*.out
-
-# 例外：保留这些 output 目录下的 .dat 文件和 slurm 日志
-!bccTi/high_t/output/**/*.dat
-!bccTi/low_t/output/**/*.dat
-!bccTi/low_t_const/output/**/*.dat
-!bccTi/high_*/output/**/*.dat
-!bccTi/high_*/slurm-*.out
-!bccTi/low_*/slurm-*.out
-
-# 模拟 restart 和 log 文件，不进 git
+# === 模拟 restart 和 log ===
 *.exadis
 exadis.log
 
-# === HPC 模拟输出:忽略 output 下所有内容,但保留两个数据文件 ===
+# === 默认忽略所有算例 output 下的一切 ===
 bccTi/*/output/*
+
+# === relax 算例：整个目录丢弃（脚本、output、slurm 全部不进 git）===
+bccTi/relax_*/
+
+# === 例外：放行 output 里的关键结果 + slurm 日志 ===
 !bccTi/*/output/stress_strain_dens.dat
 !bccTi/*/output/timer.dat
+!bccTi/*/slurm-*.out
