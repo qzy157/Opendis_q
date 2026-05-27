@@ -19,3 +19,7 @@ bccTi/relax_*/
 !bccTi/*/output/stress_strain_dens.dat
 !bccTi/*/output/timer.dat
 !bccTi/*/slurm-*.out
+
+# HPC simulation outputs
+*.vtk
+vtk/
