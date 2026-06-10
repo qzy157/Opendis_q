@@ -69,7 +69,7 @@ def example_fcc_Cu_15um_1e3_with_cross_slip():
     restart_id = sys.argv[1] if len(sys.argv) > 1 else None
 
     if restart_id is None:
-        data_filename = '../10_strain_hardening/180chains_16.10e.data'
+        data_filename = '/data/home/dg000246d/Opendis_q/examples/10_strain_hardening/180chains_16.10e.data'
         print(f"init from {data_filename}")
         net, restart = init_from_paradis_data_file(data_filename)
     else:
