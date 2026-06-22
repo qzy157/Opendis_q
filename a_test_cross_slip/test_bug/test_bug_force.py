@@ -24,6 +24,11 @@ bug 的本质
     在本脚本的超临界力下 handle_bulk 通过应力阈值并触发交滑移 → 前 5 段的滑移面从 (111)
     翻到交滑移面 (1 -1 1)。← 修复后
 
+  wansheng 实现 cross_slip_fcc_wansheng.h：思路与新实现一致——逐 segment 判螺型、切出极大
+    连续螺型 run（前 5 段，>= minChainSegments=4）→ 1 条链 → handle_bulk 在同一条超临界力下
+    触发交滑移 → 前 5 段滑移面翻到 (1 -1 1)。本脚本的第 [3] 段就是为覆盖 wansheng 的
+    “执行”路径（应力阈值/热激活/翻面）而加，test_bug.py 只覆盖了它的建链层。
+
 怎么“测出来”
 ------------
 交滑移一旦执行，execute_crossslip 会把 run 上每个 segment 的滑移面改成交滑移面（update_seg_plane）。
@@ -277,6 +282,31 @@ def main():
             print(">>> 绑定里没有 make_cross_slip_fcc_test。")
             print(">>> 请先重新编译并安装 pyexadis（见文件顶部用法说明），再运行本测试。\n")
 
+        # ============ wansheng 方案（被测，应修复：施力后 5 段交滑移）============
+        print("=" * 72)
+        print("[3] wansheng 方案 CrossSlipFCCWansheng —— 期望：螺型 run(第0..4段)交滑移，5 段翻面")
+        print("=" * 72)
+        if hasattr(pyexadis, 'make_cross_slip_fcc_wansheng'):
+            cs_p_ws = make_deterministic_params(pyexadis.CrossSlipFCCWansheng_Params())
+            cs_p_ws.minChainSegments = 4         # wansheng 用 minChainSegments(默认4)，无 minRunLength 字段
+            ok_ws, res_ws, csp_ws, log_ws = run_handler_with_force(
+                'make_cross_slip_fcc_wansheng', params, force, cs_p_ws, MAG)
+            sys.stdout.write(log_ws)
+            changed_ws, planes_after_ws = res_ws
+            print(">>> wansheng：滑移面发生改变的 segment 数 = %d  %s"
+                  % (len(changed_ws), changed_ws if changed_ws else "(无)"))
+            if changed_ws:
+                cs_hat = unit(csp_ws)
+                print("    交滑移目标面 (1 -1 1)/√3 = %s" % np.round(cs_hat, 3))
+                for i in changed_ws:
+                    print("      seg %d 新滑移面法向 = %s" % (i, np.round(unit(planes_after_ws[i]), 3)))
+            print()
+        else:
+            changed_ws = None
+            log_ws = ''
+            print(">>> 绑定里没有 make_cross_slip_fcc_wansheng。")
+            print(">>> 请先接入 cross_slip_fcc_wansheng.h 并重新编译安装 pyexadis（见文件顶部用法说明），再运行本测试。\n")
+
         # ============ 判定 ============
         print("=" * 72)
         print("结论")
@@ -284,21 +314,34 @@ def main():
         if changed_old is not None:
             tag = "✓ 复现 bug（施了超临界力也没交滑移：链被整条丢弃）" if len(changed_old) == 0 \
                   else "✗ 未复现（旧实现竟发生了交滑移，构型/参数与预期不符）"
-            print("  旧实现: %d 段交滑移   %s" % (len(changed_old), tag))
+            print("  旧实现:   %d 段交滑移   %s" % (len(changed_old), tag))
+
+        if changed_ws is None:
+            print("  wansheng: 未测（pyexadis 未接入 wansheng 绑定）")
+        elif len(changed_ws) >= 1:
+            print("  wansheng: %d 段交滑移   ✓ 螺型 run 在力驱动下正确交滑移（滑移面翻到交滑移面）"
+                  % len(changed_ws))
+        else:
+            print("  wansheng: %d 段交滑移   ✗ 仍未触发（力/参数未达阈值或链未建出）" % len(changed_ws))
+
         if changed_new is None:
-            print("  新实现: 未测（pyexadis 未重新编译）")
-            print("\n  => 无法判定，请重新编译后再跑。")
-            return
-        if len(changed_new) >= 1:
-            print("  新实现: %d 段交滑移   ✓ 螺型 run 在力驱动下正确交滑移（滑移面翻到交滑移面）" % len(changed_new))
+            print("  新实现:   未测（pyexadis 未重新编译）")
+        elif len(changed_new) >= 1:
+            print("  新实现:   %d 段交滑移   ✓ 螺型 run 在力驱动下正确交滑移" % len(changed_new))
+        else:
+            print("  新实现:   %d 段交滑移   ✗ 仍未触发" % len(changed_new))
+
+        # —— 总判定：以 wansheng 为本测试主对象 ——
+        if changed_ws is None:
+            print("\n  => wansheng 未测，无法判定；请重新编译并接入绑定后再跑。")
+        elif len(changed_ws) >= 1:
             print("\n  => PASS：bug 已修复。")
             print("     旧实现把弯臂整条丢弃，超临界力也驱动不了交滑移；")
-            print("     新实现切出螺型 run，同一条力就把它交滑移了——力把 bug 测了出来。")
+            print("     wansheng 切出螺型 run，同一条力就把它真正翻了面——力把 bug 测了出来。")
         else:
-            print("  新实现: 0 段交滑移   ✗ 仍未触发")
-            print("\n  => FAIL：bug 未修复，或力/参数未达阈值。")
-            if not log_new.strip():
-                print("     （未捕获到 [NEW-CS] 调试行：可能 DEBUG 块已删除，"
+            print("\n  => FAIL：wansheng 未触发交滑移（bug 未修复，或力/参数未达阈值）。")
+            if not log_ws.strip():
+                print("     （未捕获到 [WS-CS] 调试行：可能 DEBUG 块已删除，"
                       "或未走到 build_screw_chains——请检查 crystal/use_glide_planes 设置）")
     finally:
         pyexadis.finalize()
