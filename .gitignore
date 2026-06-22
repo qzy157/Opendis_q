@@ -20,6 +20,14 @@ bccTi/relax_*/
 !bccTi/*/output/timer.dat
 !bccTi/*/slurm-*.out
 
+# === FCC cross-slip 算例 ===
+a_test_cross_slip/*/output*/config.*.data
+a_test_cross_slip/*/output*/*.exadis
+a_test_cross_slip/*/slurm-*.out
+!a_test_cross_slip/*/output*/stress_strain_dens.dat
+!a_test_cross_slip/*/output*/timer.dat
+!a_test_cross_slip/*/output*/exadis.log
+
 # HPC simulation outputs
 *.vtk
 vtk/
