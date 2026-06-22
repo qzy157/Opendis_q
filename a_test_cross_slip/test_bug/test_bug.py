@@ -31,11 +31,9 @@ import contextlib
 import tempfile
 import numpy as np
 
-# --- 注入 pyexadis 路径（相对脚本位置定位，等价于绝对路径，不受 cwd 影响）---
-here = os.path.dirname(os.path.abspath(__file__))
-pyexadis_path = os.path.normpath(os.path.join(here, '..', '..', 'core', 'exadis', 'python'))
-if pyexadis_path not in sys.path:
-    sys.path.append(pyexadis_path)
+# Import pyexadis
+pyexadis_path = '/data/home/dg000246d/Opendis_q/core/exadis/python/'
+if not pyexadis_path in sys.path: sys.path.append(pyexadis_path)
 
 try:
     import pyexadis
