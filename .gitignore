@@ -26,7 +26,7 @@ a_test_cross_slip/*/output*/*.exadis
 a_test_cross_slip/*/slurm-*.out
 !a_test_cross_slip/*/output*/stress_strain_dens.dat
 !a_test_cross_slip/*/output*/timer.dat
-!a_test_cross_slip/*/output*/exadis.log
+
 
 # HPC simulation outputs
 *.vtk
