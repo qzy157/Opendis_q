@@ -32,17 +32,19 @@ def make_cross_slip_fcc_thermal(state, force_module, temperature=300.0):
     force_obj, force_python = get_exadis_force(force_module, state, params)
 
     # Use default parameters from CrossSlipFCCThermal::Params
-    cs_p = pyexadis.CrossSlipFCCThermalParams()
+    # 注意：绑定的类名带下划线（CrossSlipFCCThermal_Params），见 exadis_pybind.cpp:1299
+    cs_p = pyexadis.CrossSlipFCCThermal_Params()
     cs_p.temperature = temperature
 
+    # CrossSlipFCCThermal（旧版、带"弯臂整条丢弃"物理 bug）由专用函数构造，
+    # 不能走 make_cross_slip（后者只支持 ForceBasedParallel/ForceBasedSerial/None）。
     xs = CrossSlip.__new__(CrossSlip)
-    xs.cross_slip_mode = 'FCCThermalParallel'
+    xs.cross_slip_mode = 'FCCThermal'
     xs.force_python = force_python
-    xs.cross_slip = pyexadis.make_cross_slip(
-        'FCCThermalParallel',
+    xs.cross_slip = pyexadis.make_cross_slip_fcc_thermal(
         params=params,
         force=force_obj,
-        cs_thermal_params=cs_p,
+        fcc_params=cs_p,
     )
     return xs
 
@@ -62,6 +64,7 @@ def example_fcc_Cu_15um_1e3_with_cross_slip():
         "rann": 10.0,
         "nextdt": 1e-10,
         "maxdt": 1e-9,
+        "use_glide_planes": True,   # CrossSlipFCCThermal::handle() 要求 use_glide_planes=true（与 yes_test 配置对齐）
     }
 
     output_dir = 'output_with_cross_slip'
