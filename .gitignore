@@ -31,3 +31,8 @@ a_test_cross_slip/*/slurm-*.out
 # HPC simulation outputs
 *.vtk
 vtk/
+# === FCC cross-slip：config.N.data 帧转储（vtk 源数据，可从模拟重新生成）===
+a_test_cross_slip/**/config.*.data
+
+# === FCC cross-slip：slurm 日志放在 vtk_py/ 等嵌套目录，用 ** 补齐覆盖 ===
+a_test_cross_slip/**/slurm-*.out
