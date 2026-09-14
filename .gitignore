@@ -28,3 +28,5 @@ a_test_cross_slip/**/output*/*.exadis
 # === 例外：放行关键结果 ===
 !a_test_cross_slip/**/output*/stress_strain_dens.dat
 !a_test_cross_slip/**/output*/timer.dat
+# DDD 中间构型输出，体积大且可复现，不入库
+config.*.data

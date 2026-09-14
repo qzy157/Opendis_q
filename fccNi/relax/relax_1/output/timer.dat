@@ -1,0 +1,966 @@
+Step = 100
+
+Force time:               7.292 sec
+Mobility time:            2.207 sec
+Integration time:        14.191 sec
+Cross-slip time:          0.001 sec
+Collision time:           0.078 sec
+Topology time:            0.075 sec
+Remesh time:              0.001 sec
+Output time:              0.002 sec
+
+Total time:              16.567 sec
+
+--------------------------------------------------
+Step = 200
+
+Force time:              17.508 sec
+Mobility time:            4.784 sec
+Integration time:        30.922 sec
+Cross-slip time:          0.002 sec
+Collision time:           0.112 sec
+Topology time:            0.094 sec
+Remesh time:              0.001 sec
+Output time:              0.003 sec
+
+Total time:              35.807 sec
+
+--------------------------------------------------
+Step = 300
+
+Force time:              29.385 sec
+Mobility time:            7.418 sec
+Integration time:        50.138 sec
+Cross-slip time:          0.003 sec
+Collision time:           0.147 sec
+Topology time:            0.113 sec
+Remesh time:              0.002 sec
+Output time:              0.005 sec
+
+Total time:              57.857 sec
+
+--------------------------------------------------
+Step = 400
+
+Force time:              41.715 sec
+Mobility time:            9.898 sec
+Integration time:        69.400 sec
+Cross-slip time:          0.005 sec
+Collision time:           0.186 sec
+Topology time:            0.133 sec
+Remesh time:              0.002 sec
+Output time:              0.006 sec
+
+Total time:              80.045 sec
+
+--------------------------------------------------
+Step = 500
+
+Force time:              54.282 sec
+Mobility time:           12.532 sec
+Integration time:        88.865 sec
+Cross-slip time:          0.006 sec
+Collision time:           0.221 sec
+Topology time:            0.153 sec
+Remesh time:              0.003 sec
+Output time:              0.008 sec
+
+Total time:             102.433 sec
+
+--------------------------------------------------
+Step = 600
+
+Force time:              66.889 sec
+Mobility time:           15.218 sec
+Integration time:       108.322 sec
+Cross-slip time:          0.007 sec
+Collision time:           0.257 sec
+Topology time:            0.173 sec
+Remesh time:              0.004 sec
+Output time:              0.009 sec
+
+Total time:             124.860 sec
+
+--------------------------------------------------
+Step = 700
+
+Force time:              79.094 sec
+Mobility time:           17.800 sec
+Integration time:       127.464 sec
+Cross-slip time:          0.008 sec
+Collision time:           0.292 sec
+Topology time:            0.192 sec
+Remesh time:              0.004 sec
+Output time:              0.010 sec
+
+Total time:             146.892 sec
+
+--------------------------------------------------
+Step = 800
+
+Force time:              90.729 sec
+Mobility time:           20.033 sec
+Integration time:       145.228 sec
+Cross-slip time:          0.010 sec
+Collision time:           0.330 sec
+Topology time:            0.212 sec
+Remesh time:              0.005 sec
+Output time:              0.011 sec
+
+Total time:             167.407 sec
+
+--------------------------------------------------
+Step = 900
+
+Force time:             102.998 sec
+Mobility time:           22.497 sec
+Integration time:       164.175 sec
+Cross-slip time:          0.011 sec
+Collision time:           0.365 sec
+Topology time:            0.232 sec
+Remesh time:              0.005 sec
+Output time:              0.012 sec
+
+Total time:             189.207 sec
+
+--------------------------------------------------
+Step = 1000
+
+Force time:             117.043 sec
+Mobility time:           25.167 sec
+Integration time:       185.366 sec
+Cross-slip time:          0.012 sec
+Collision time:           0.404 sec
+Topology time:            0.252 sec
+Remesh time:              0.006 sec
+Output time:              0.013 sec
+
+Total time:             213.653 sec
+
+--------------------------------------------------
+Step = 1100
+
+Force time:             129.062 sec
+Mobility time:           27.834 sec
+Integration time:       204.021 sec
+Cross-slip time:          0.014 sec
+Collision time:           0.440 sec
+Topology time:            0.272 sec
+Remesh time:              0.007 sec
+Output time:              0.014 sec
+
+Total time:             235.204 sec
+
+--------------------------------------------------
+Step = 1200
+
+Force time:             141.666 sec
+Mobility time:           30.233 sec
+Integration time:       223.180 sec
+Cross-slip time:          0.015 sec
+Collision time:           0.484 sec
+Topology time:            0.292 sec
+Remesh time:              0.007 sec
+Output time:              0.015 sec
+
+Total time:             257.331 sec
+
+--------------------------------------------------
+Step = 1300
+
+Force time:             154.413 sec
+Mobility time:           33.104 sec
+Integration time:       242.902 sec
+Cross-slip time:          0.016 sec
+Collision time:           0.519 sec
+Topology time:            0.312 sec
+Remesh time:              0.008 sec
+Output time:              0.016 sec
+
+Total time:             280.085 sec
+
+--------------------------------------------------
+Step = 1400
+
+Force time:             167.903 sec
+Mobility time:           35.843 sec
+Integration time:       263.541 sec
+Cross-slip time:          0.017 sec
+Collision time:           0.557 sec
+Topology time:            0.333 sec
+Remesh time:              0.009 sec
+Output time:              0.017 sec
+
+Total time:             303.877 sec
+
+--------------------------------------------------
+Step = 1500
+
+Force time:             183.103 sec
+Mobility time:           39.048 sec
+Integration time:       288.000 sec
+Cross-slip time:          0.019 sec
+Collision time:           0.597 sec
+Topology time:            0.357 sec
+Remesh time:              0.009 sec
+Output time:              0.019 sec
+
+Total time:             331.950 sec
+
+--------------------------------------------------
+Step = 1600
+
+Force time:             196.499 sec
+Mobility time:           41.780 sec
+Integration time:       308.080 sec
+Cross-slip time:          0.020 sec
+Collision time:           0.634 sec
+Topology time:            0.376 sec
+Remesh time:              0.010 sec
+Output time:              0.020 sec
+
+Total time:             355.112 sec
+
+--------------------------------------------------
+Step = 1700
+
+Force time:             210.058 sec
+Mobility time:           44.192 sec
+Integration time:       327.990 sec
+Cross-slip time:          0.021 sec
+Collision time:           0.671 sec
+Topology time:            0.397 sec
+Remesh time:              0.010 sec
+Output time:              0.021 sec
+
+Total time:             378.084 sec
+
+--------------------------------------------------
+Step = 1800
+
+Force time:             223.038 sec
+Mobility time:           46.789 sec
+Integration time:       347.318 sec
+Cross-slip time:          0.023 sec
+Collision time:           0.703 sec
+Topology time:            0.415 sec
+Remesh time:              0.011 sec
+Output time:              0.022 sec
+
+Total time:             400.375 sec
+
+--------------------------------------------------
+Step = 1900
+
+Force time:             234.970 sec
+Mobility time:           49.311 sec
+Integration time:       365.365 sec
+Cross-slip time:          0.024 sec
+Collision time:           0.745 sec
+Topology time:            0.435 sec
+Remesh time:              0.012 sec
+Output time:              0.023 sec
+
+Total time:             421.335 sec
+
+--------------------------------------------------
+Step = 2000
+
+Force time:             247.667 sec
+Mobility time:           51.923 sec
+Integration time:       384.312 sec
+Cross-slip time:          0.025 sec
+Collision time:           0.782 sec
+Topology time:            0.454 sec
+Remesh time:              0.012 sec
+Output time:              0.025 sec
+
+Total time:             443.256 sec
+
+--------------------------------------------------
+Step = 2100
+
+Force time:             259.830 sec
+Mobility time:           54.131 sec
+Integration time:       402.348 sec
+Cross-slip time:          0.027 sec
+Collision time:           0.817 sec
+Topology time:            0.474 sec
+Remesh time:              0.013 sec
+Output time:              0.026 sec
+
+Total time:             464.106 sec
+
+--------------------------------------------------
+Step = 2200
+
+Force time:             272.891 sec
+Mobility time:           56.864 sec
+Integration time:       422.024 sec
+Cross-slip time:          0.028 sec
+Collision time:           0.851 sec
+Topology time:            0.493 sec
+Remesh time:              0.014 sec
+Output time:              0.027 sec
+
+Total time:             486.862 sec
+
+--------------------------------------------------
+Step = 2300
+
+Force time:             286.405 sec
+Mobility time:           59.632 sec
+Integration time:       442.288 sec
+Cross-slip time:          0.029 sec
+Collision time:           0.884 sec
+Topology time:            0.512 sec
+Remesh time:              0.014 sec
+Output time:              0.028 sec
+
+Total time:             510.248 sec
+
+--------------------------------------------------
+Step = 2400
+
+Force time:             300.237 sec
+Mobility time:           62.387 sec
+Integration time:       462.843 sec
+Cross-slip time:          0.031 sec
+Collision time:           0.928 sec
+Topology time:            0.531 sec
+Remesh time:              0.015 sec
+Output time:              0.029 sec
+
+Total time:             533.991 sec
+
+--------------------------------------------------
+Step = 2500
+
+Force time:             313.756 sec
+Mobility time:           64.763 sec
+Integration time:       482.439 sec
+Cross-slip time:          0.032 sec
+Collision time:           0.967 sec
+Topology time:            0.553 sec
+Remesh time:              0.016 sec
+Output time:              0.030 sec
+
+Total time:             556.677 sec
+
+--------------------------------------------------
+Step = 2600
+
+Force time:             328.214 sec
+Mobility time:           67.582 sec
+Integration time:       503.870 sec
+Cross-slip time:          0.033 sec
+Collision time:           1.009 sec
+Topology time:            0.572 sec
+Remesh time:              0.016 sec
+Output time:              0.032 sec
+
+Total time:             581.417 sec
+
+--------------------------------------------------
+Step = 2700
+
+Force time:             341.708 sec
+Mobility time:           70.290 sec
+Integration time:       524.009 sec
+Cross-slip time:          0.034 sec
+Collision time:           1.043 sec
+Topology time:            0.591 sec
+Remesh time:              0.017 sec
+Output time:              0.033 sec
+
+Total time:             604.641 sec
+
+--------------------------------------------------
+Step = 2800
+
+Force time:             355.954 sec
+Mobility time:           73.409 sec
+Integration time:       546.407 sec
+Cross-slip time:          0.036 sec
+Collision time:           1.089 sec
+Topology time:            0.621 sec
+Remesh time:              0.018 sec
+Output time:              0.034 sec
+
+Total time:             630.480 sec
+
+--------------------------------------------------
+Step = 2900
+
+Force time:             368.898 sec
+Mobility time:           76.049 sec
+Integration time:       565.792 sec
+Cross-slip time:          0.037 sec
+Collision time:           1.127 sec
+Topology time:            0.642 sec
+Remesh time:              0.018 sec
+Output time:              0.035 sec
+
+Total time:             652.920 sec
+
+--------------------------------------------------
+Step = 3000
+
+Force time:             382.661 sec
+Mobility time:           78.400 sec
+Integration time:       585.747 sec
+Cross-slip time:          0.038 sec
+Collision time:           1.171 sec
+Topology time:            0.661 sec
+Remesh time:              0.019 sec
+Output time:              0.036 sec
+
+Total time:             676.005 sec
+
+--------------------------------------------------
+Step = 3100
+
+Force time:             397.034 sec
+Mobility time:           81.228 sec
+Integration time:       607.010 sec
+Cross-slip time:          0.040 sec
+Collision time:           1.204 sec
+Topology time:            0.680 sec
+Remesh time:              0.020 sec
+Output time:              0.038 sec
+
+Total time:             700.598 sec
+
+--------------------------------------------------
+Step = 3200
+
+Force time:             411.135 sec
+Mobility time:           84.004 sec
+Integration time:       627.807 sec
+Cross-slip time:          0.041 sec
+Collision time:           1.237 sec
+Topology time:            0.699 sec
+Remesh time:              0.020 sec
+Output time:              0.039 sec
+
+Total time:             724.667 sec
+
+--------------------------------------------------
+Step = 3300
+
+Force time:             424.321 sec
+Mobility time:           86.684 sec
+Integration time:       647.371 sec
+Cross-slip time:          0.042 sec
+Collision time:           1.278 sec
+Topology time:            0.719 sec
+Remesh time:              0.021 sec
+Output time:              0.040 sec
+
+Total time:             747.330 sec
+
+--------------------------------------------------
+Step = 3400
+
+Force time:             439.004 sec
+Mobility time:           89.228 sec
+Integration time:       668.799 sec
+Cross-slip time:          0.043 sec
+Collision time:           1.328 sec
+Topology time:            0.738 sec
+Remesh time:              0.022 sec
+Output time:              0.041 sec
+
+Total time:             772.071 sec
+
+--------------------------------------------------
+Step = 3500
+
+Force time:             453.691 sec
+Mobility time:           92.199 sec
+Integration time:       691.153 sec
+Cross-slip time:          0.045 sec
+Collision time:           1.368 sec
+Topology time:            0.759 sec
+Remesh time:              0.022 sec
+Output time:              0.042 sec
+
+Total time:             797.937 sec
+
+--------------------------------------------------
+Step = 3600
+
+Force time:             468.094 sec
+Mobility time:           94.819 sec
+Integration time:       712.377 sec
+Cross-slip time:          0.046 sec
+Collision time:           1.406 sec
+Topology time:            0.778 sec
+Remesh time:              0.023 sec
+Output time:              0.044 sec
+
+Total time:             822.471 sec
+
+--------------------------------------------------
+Step = 3700
+
+Force time:             481.708 sec
+Mobility time:           97.642 sec
+Integration time:       732.676 sec
+Cross-slip time:          0.047 sec
+Collision time:           1.442 sec
+Topology time:            0.797 sec
+Remesh time:              0.024 sec
+Output time:              0.045 sec
+
+Total time:             845.934 sec
+
+--------------------------------------------------
+Step = 3800
+
+Force time:             495.147 sec
+Mobility time:          100.395 sec
+Integration time:       752.698 sec
+Cross-slip time:          0.049 sec
+Collision time:           1.484 sec
+Topology time:            0.816 sec
+Remesh time:              0.025 sec
+Output time:              0.046 sec
+
+Total time:             869.125 sec
+
+--------------------------------------------------
+Step = 3900
+
+Force time:             509.405 sec
+Mobility time:          103.115 sec
+Integration time:       773.639 sec
+Cross-slip time:          0.050 sec
+Collision time:           1.519 sec
+Topology time:            0.836 sec
+Remesh time:              0.025 sec
+Output time:              0.047 sec
+
+Total time:             893.264 sec
+
+--------------------------------------------------
+Step = 4000
+
+Force time:             523.740 sec
+Mobility time:          105.572 sec
+Integration time:       794.361 sec
+Cross-slip time:          0.051 sec
+Collision time:           1.554 sec
+Topology time:            0.855 sec
+Remesh time:              0.026 sec
+Output time:              0.048 sec
+
+Total time:             917.206 sec
+
+--------------------------------------------------
+Step = 4100
+
+Force time:             537.966 sec
+Mobility time:          108.334 sec
+Integration time:       815.333 sec
+Cross-slip time:          0.053 sec
+Collision time:           1.589 sec
+Topology time:            0.875 sec
+Remesh time:              0.027 sec
+Output time:              0.050 sec
+
+Total time:             941.446 sec
+
+--------------------------------------------------
+Step = 4200
+
+Force time:             551.591 sec
+Mobility time:          111.104 sec
+Integration time:       835.673 sec
+Cross-slip time:          0.054 sec
+Collision time:           1.623 sec
+Topology time:            0.896 sec
+Remesh time:              0.027 sec
+Output time:              0.051 sec
+
+Total time:             964.942 sec
+
+--------------------------------------------------
+Step = 4300
+
+Force time:             565.140 sec
+Mobility time:          113.859 sec
+Integration time:       855.819 sec
+Cross-slip time:          0.055 sec
+Collision time:           1.661 sec
+Topology time:            0.915 sec
+Remesh time:              0.028 sec
+Output time:              0.052 sec
+
+Total time:             988.240 sec
+
+--------------------------------------------------
+Step = 4400
+
+Force time:             578.379 sec
+Mobility time:          116.120 sec
+Integration time:       875.004 sec
+Cross-slip time:          0.057 sec
+Collision time:           1.697 sec
+Topology time:            0.934 sec
+Remesh time:              0.029 sec
+Output time:              0.053 sec
+
+Total time:            1010.444 sec
+
+--------------------------------------------------
+Step = 4500
+
+Force time:             593.057 sec
+Mobility time:          119.008 sec
+Integration time:       896.777 sec
+Cross-slip time:          0.058 sec
+Collision time:           1.733 sec
+Topology time:            0.953 sec
+Remesh time:              0.029 sec
+Output time:              0.054 sec
+
+Total time:            1035.588 sec
+
+--------------------------------------------------
+Step = 4600
+
+Force time:             607.673 sec
+Mobility time:          121.884 sec
+Integration time:       918.415 sec
+Cross-slip time:          0.059 sec
+Collision time:           1.772 sec
+Topology time:            0.972 sec
+Remesh time:              0.030 sec
+Output time:              0.056 sec
+
+Total time:            1060.691 sec
+
+--------------------------------------------------
+Step = 4700
+
+Force time:             621.320 sec
+Mobility time:          124.575 sec
+Integration time:       938.723 sec
+Cross-slip time:          0.061 sec
+Collision time:           1.809 sec
+Topology time:            0.992 sec
+Remesh time:              0.031 sec
+Output time:              0.057 sec
+
+Total time:            1084.136 sec
+
+--------------------------------------------------
+Step = 4800
+
+Force time:             634.466 sec
+Mobility time:          127.212 sec
+Integration time:       958.260 sec
+Cross-slip time:          0.062 sec
+Collision time:           1.849 sec
+Topology time:            1.012 sec
+Remesh time:              0.031 sec
+Output time:              0.058 sec
+
+Total time:            1106.728 sec
+
+--------------------------------------------------
+Step = 4900
+
+Force time:             647.402 sec
+Mobility time:          129.498 sec
+Integration time:       977.197 sec
+Cross-slip time:          0.063 sec
+Collision time:           1.882 sec
+Topology time:            1.031 sec
+Remesh time:              0.032 sec
+Output time:              0.059 sec
+
+Total time:            1128.595 sec
+
+--------------------------------------------------
+Step = 5000
+
+Force time:             661.205 sec
+Mobility time:          132.026 sec
+Integration time:       997.629 sec
+Cross-slip time:          0.065 sec
+Collision time:           1.920 sec
+Topology time:            1.050 sec
+Remesh time:              0.033 sec
+Output time:              0.060 sec
+
+Total time:            1152.133 sec
+
+--------------------------------------------------
+Step = 5100
+
+Force time:             676.133 sec
+Mobility time:          134.912 sec
+Integration time:      1019.714 sec
+Cross-slip time:          0.066 sec
+Collision time:           1.953 sec
+Topology time:            1.069 sec
+Remesh time:              0.033 sec
+Output time:              0.062 sec
+
+Total time:            1177.580 sec
+
+--------------------------------------------------
+Step = 5200
+
+Force time:             689.428 sec
+Mobility time:          137.308 sec
+Integration time:      1039.276 sec
+Cross-slip time:          0.067 sec
+Collision time:           1.986 sec
+Topology time:            1.088 sec
+Remesh time:              0.034 sec
+Output time:              0.063 sec
+
+Total time:            1200.154 sec
+
+--------------------------------------------------
+Step = 5300
+
+Force time:             702.398 sec
+Mobility time:          139.564 sec
+Integration time:      1058.128 sec
+Cross-slip time:          0.069 sec
+Collision time:           2.018 sec
+Topology time:            1.107 sec
+Remesh time:              0.035 sec
+Output time:              0.064 sec
+
+Total time:            1221.924 sec
+
+--------------------------------------------------
+Step = 5400
+
+Force time:             714.932 sec
+Mobility time:          141.801 sec
+Integration time:      1076.480 sec
+Cross-slip time:          0.070 sec
+Collision time:           2.058 sec
+Topology time:            1.127 sec
+Remesh time:              0.035 sec
+Output time:              0.065 sec
+
+Total time:            1243.177 sec
+
+--------------------------------------------------
+Step = 5500
+
+Force time:             729.457 sec
+Mobility time:          144.725 sec
+Integration time:      1098.070 sec
+Cross-slip time:          0.071 sec
+Collision time:           2.093 sec
+Topology time:            1.146 sec
+Remesh time:              0.036 sec
+Output time:              0.067 sec
+
+Total time:            1268.127 sec
+
+--------------------------------------------------
+Step = 5600
+
+Force time:             742.233 sec
+Mobility time:          147.362 sec
+Integration time:      1117.245 sec
+Cross-slip time:          0.073 sec
+Collision time:           2.129 sec
+Topology time:            1.165 sec
+Remesh time:              0.037 sec
+Output time:              0.068 sec
+
+Total time:            1290.241 sec
+
+--------------------------------------------------
+Step = 5700
+
+Force time:             755.418 sec
+Mobility time:          149.653 sec
+Integration time:      1136.451 sec
+Cross-slip time:          0.074 sec
+Collision time:           2.163 sec
+Topology time:            1.184 sec
+Remesh time:              0.037 sec
+Output time:              0.069 sec
+
+Total time:            1312.432 sec
+
+--------------------------------------------------
+Step = 5800
+
+Force time:             767.700 sec
+Mobility time:          152.133 sec
+Integration time:      1154.777 sec
+Cross-slip time:          0.075 sec
+Collision time:           2.200 sec
+Topology time:            1.203 sec
+Remesh time:              0.038 sec
+Output time:              0.070 sec
+
+Total time:            1333.641 sec
+
+--------------------------------------------------
+Step = 5900
+
+Force time:             781.120 sec
+Mobility time:          154.793 sec
+Integration time:      1174.716 sec
+Cross-slip time:          0.077 sec
+Collision time:           2.236 sec
+Topology time:            1.222 sec
+Remesh time:              0.039 sec
+Output time:              0.071 sec
+
+Total time:            1356.681 sec
+
+--------------------------------------------------
+Step = 6000
+
+Force time:             794.095 sec
+Mobility time:          157.471 sec
+Integration time:      1194.047 sec
+Cross-slip time:          0.078 sec
+Collision time:           2.271 sec
+Topology time:            1.242 sec
+Remesh time:              0.039 sec
+Output time:              0.072 sec
+
+Total time:            1379.025 sec
+
+--------------------------------------------------
+Step = 6100
+
+Force time:             808.146 sec
+Mobility time:          159.891 sec
+Integration time:      1214.482 sec
+Cross-slip time:          0.079 sec
+Collision time:           2.308 sec
+Topology time:            1.262 sec
+Remesh time:              0.040 sec
+Output time:              0.074 sec
+
+Total time:            1402.627 sec
+
+--------------------------------------------------
+Step = 6200
+
+Force time:             823.183 sec
+Mobility time:          162.826 sec
+Integration time:      1237.275 sec
+Cross-slip time:          0.081 sec
+Collision time:           2.347 sec
+Topology time:            1.283 sec
+Remesh time:              0.041 sec
+Output time:              0.075 sec
+
+Total time:            1428.892 sec
+
+--------------------------------------------------
+Step = 6300
+
+Force time:             836.209 sec
+Mobility time:          165.697 sec
+Integration time:      1257.441 sec
+Cross-slip time:          0.082 sec
+Collision time:           2.383 sec
+Topology time:            1.303 sec
+Remesh time:              0.041 sec
+Output time:              0.076 sec
+
+Total time:            1452.134 sec
+
+--------------------------------------------------
+Step = 6400
+
+Force time:             849.906 sec
+Mobility time:          168.726 sec
+Integration time:      1278.704 sec
+Cross-slip time:          0.083 sec
+Collision time:           2.418 sec
+Topology time:            1.323 sec
+Remesh time:              0.042 sec
+Output time:              0.077 sec
+
+Total time:            1476.594 sec
+
+--------------------------------------------------
+Step = 6500
+
+Force time:             863.849 sec
+Mobility time:          171.568 sec
+Integration time:      1300.045 sec
+Cross-slip time:          0.084 sec
+Collision time:           2.459 sec
+Topology time:            1.343 sec
+Remesh time:              0.043 sec
+Output time:              0.078 sec
+
+Total time:            1501.178 sec
+
+--------------------------------------------------
+Step = 6600
+
+Force time:             879.510 sec
+Mobility time:          175.119 sec
+Integration time:      1325.265 sec
+Cross-slip time:          0.086 sec
+Collision time:           2.517 sec
+Topology time:            1.369 sec
+Remesh time:              0.043 sec
+Output time:              0.079 sec
+
+Total time:            1530.214 sec
+
+--------------------------------------------------
+Step = 6700
+
+Force time:             896.074 sec
+Mobility time:          179.336 sec
+Integration time:      1353.028 sec
+Cross-slip time:          0.087 sec
+Collision time:           2.564 sec
+Topology time:            1.400 sec
+Remesh time:              0.044 sec
+Output time:              0.081 sec
+
+Total time:            1562.078 sec
+
+--------------------------------------------------
+Step = 6800
+
+Force time:             910.012 sec
+Mobility time:          182.195 sec
+Integration time:      1374.867 sec
+Cross-slip time:          0.088 sec
+Collision time:           2.606 sec
+Topology time:            1.424 sec
+Remesh time:              0.045 sec
+Output time:              0.082 sec
+
+Total time:            1587.208 sec
+
+--------------------------------------------------
+Step = 6900
+
+Force time:             925.770 sec
+Mobility time:          186.170 sec
+Integration time:      1402.046 sec
+Cross-slip time:          0.090 sec
+Collision time:           2.664 sec
+Topology time:            1.463 sec
+Remesh time:              0.046 sec
+Output time:              0.084 sec
+
+Total time:            1618.456 sec
+
+--------------------------------------------------

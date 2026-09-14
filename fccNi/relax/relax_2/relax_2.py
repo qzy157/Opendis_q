@@ -28,9 +28,7 @@ def fcc_Ni_10um_relax():
         "rann": 0.5,
         "nextdt": 1e-12,
         "maxdt": 1e-7,
-        "split3node": 0,
         "use_glide_planes": 1,
-        "num_bcc_plane_families": 1,
     }
     G = ExaDisNet()
     G.read_data('/data/home/dg000246d/Opendis_q/fccNi/init/fr_2/fcc_Ni_10um_1e10_frank_read_2.data')
