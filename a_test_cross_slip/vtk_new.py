@@ -7,8 +7,8 @@ import pyexadis
 from pyexadis_utils import read_paradis, write_vtk
 
 # ========== 在这里修改路径和范围 ==========
-input_dir  = '/data/home/dg000246d/Opendis_q/a_test_cross_slip/wansheng_vis/output_cross_slip_wansheng'
-output_dir = '/data/home/dg000246d/Opendis_q/a_test_cross_slip/wansheng_vis/vtk'
+input_dir  = '/data/home/dg000246d/Opendis_q/a_test_cross_slip/test_bug/bug_new/wansheng/output'
+output_dir = '/data/home/dg000246d/Opendis_q/a_test_cross_slip/test_bug/bug_new/wansheng/vtk'
 
 # ---- 转换范围设置（直接填文件名，留空则全部转换） ----
 start_file = 'config.0.data'   # 起始文件名（例如 'config.0.data'），设为 None 则从第一个开始
