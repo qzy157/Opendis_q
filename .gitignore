@@ -35,4 +35,6 @@ vtk/
 a_test_cross_slip/**/config.*.data
 
 # === FCC cross-slip：slurm 日志放在 vtk_py/ 等嵌套目录，用 ** 补齐覆盖 ===
-a_test_cross_slip/**/slurm-*.out
+a_test_cross_slip/**/slurm-*.outoutput/
+output_*/
+vtk/
