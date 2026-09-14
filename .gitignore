@@ -5,36 +5,26 @@ build
 cmake/sys.cmake.ext
 *.png
 
-# === 模拟 restart 和 log ===
+# === 模拟 restart / log / 可视化中间产物 ===
 *.exadis
 exadis.log
+*.vtk
+vtk/
 
-# === 默认忽略所有算例 output 下的一切 ===
+# === bccTi 算例 ===
 bccTi/*/output/*
-
-# === relax 算例：整个目录丢弃（脚本、output、slurm 全部不进 git）===
 bccTi/relax_*/
-
-# === 例外：放行 output 里的关键结果 + slurm 日志 ===
 !bccTi/*/output/stress_strain_dens.dat
 !bccTi/*/output/timer.dat
 !bccTi/*/slurm-*.out
 
 # === FCC cross-slip 算例 ===
-a_test_cross_slip/*/output*/config.*.data
-a_test_cross_slip/*/output*/*.exadis
-a_test_cross_slip/*/slurm-*.out
-!a_test_cross_slip/*/output*/stress_strain_dens.dat
-!a_test_cross_slip/*/output*/timer.dat
-
-
-# HPC simulation outputs
-*.vtk
-vtk/
-# === FCC cross-slip：config.N.data 帧转储（vtk 源数据，可从模拟重新生成）===
+# 按文件类型忽略大文件，不忽略 output 目录本身——
+# 目录一旦被忽略，下面的 ! 白名单就永远失效（Git 硬性规则）
 a_test_cross_slip/**/config.*.data
+a_test_cross_slip/**/slurm-*.out
+a_test_cross_slip/**/output*/*.exadis
 
-# === FCC cross-slip：slurm 日志放在 vtk_py/ 等嵌套目录，用 ** 补齐覆盖 ===
-a_test_cross_slip/**/slurm-*.outoutput/
-output_*/
-vtk/
+# === 例外：放行关键结果 ===
+!a_test_cross_slip/**/output*/stress_strain_dens.dat
+!a_test_cross_slip/**/output*/timer.dat
