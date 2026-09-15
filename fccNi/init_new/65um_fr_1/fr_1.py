@@ -82,15 +82,14 @@ def segment_distance(p1, q1, p2, q2):
     return np.linalg.norm((p1 + s * d1) - (p2 + t * d2))
 
 
-def far_from_placed(center, arm_dir, arm_length, centers, dirs, lengths, Lbox, gap):
+def far_from_placed(center, arm_dir, arm_length, centers, dirs, lengths, gap):
     """
-    判断候选源与所有已放置源（取周期最小镜像）的线段最短距离是否都 >= gap。
-    臂长 < Lbox/2 - gap 时，非最小镜像的中心距必然超过 (L_i+L_j)/2 + gap，只需检查最小镜像。
+    判断候选源与所有已放置源的线段最短距离是否都 >= gap。
+    源都在留白后的盒内、不跨周期边界，周期镜像间距自动 >= gap，只需检查盒内距离。
     """
     if len(centers) == 0:
         return True
     d = centers - center
-    d -= Lbox * np.rint(d / Lbox)  # 周期最小镜像
     # 粗筛：中心距 >= 半臂长之和 + gap 的源不可能比 gap 更近
     near = np.linalg.norm(d, axis=1) < (lengths + arm_length) / 2.0 + gap
     half = 0.5 * arm_length * arm_dir
@@ -135,9 +134,11 @@ def fcc_Ni_65um_frank_read():
     N_dis = round(Ldis_tot / ((Ldis_min + Ldis_max) / 2))
     print(f"Generating {N_dis} Frank-Read sources")
 
-    gap = 2000.0  # 源之间（含周期镜像）线段最短距离下限 (b)
-    assert Ldis_max < Lbox / 2.0 - gap, 'Ldis_max too long for minimum-image distance check'
+    gap = 2000.0  # 源之间的最小间距 (b)
     rng = np.random.default_rng(seed=42)
+    # margin 保证两端钉扎节点不超出盒子（源不跨周期边界），且跨周期边界的镜像间距也 >= gap
+    margin = Ldis_max / 2.0 + gap / 2.0
+    assert Lbox > 2.0 * margin, 'Box too small: reduce Ldis_max / gap'
     # 12 个滑移系的随机排列首尾拼接后取前 N_dis 个：
     # N_dis < 12 时随机选取互不相同的滑移系，N_dis >= 12 时各滑移系源数相差不超过 1
     n_sys = len(FCC_SLIP_SYSTEMS)
@@ -156,17 +157,16 @@ def fcc_Ni_65um_frank_read():
         b_vec = rng.choice([-1.0, 1.0]) * b_vec  # +b / -b 随机
         arm_dir = edge_line_direction(b_vec, n_vec)
 
-        # 周期盒子内中心任意取，按周期最小镜像保证与已放置源的线段距离 >= gap
+        # 中心在留白区域内随机取，保证与已放置源的线段最短距离 >= gap
         for _ in range(10000):
-            center = rng.uniform(0.0, Lbox, size=3)
-            if far_from_placed(center, arm_dir, arm_length, centers[:i], dirs[:i], lengths[:i], Lbox, gap):
+            center = rng.uniform(margin, Lbox - margin, size=3)
+            if far_from_placed(center, arm_dir, arm_length, centers[:i], dirs[:i], lengths[:i], gap):
                 break
         else:
             raise RuntimeError('Cannot place Frank-Read source: enlarge the box, or reduce Ldis_max / gap')
         centers[i], dirs[i], lengths[i] = center, arm_dir, arm_length
 
         rn, links = make_frank_read_source(center, b_vec, n_vec, arm_length)
-        rn[:, :3] = np.mod(rn[:, :3], Lbox)  # 节点折回盒内，跨边界线段由 ExaDiS 按最小镜像处理
         links[:, 0] += node_offset
         links[:, 1] += node_offset
         all_rn.append(rn)

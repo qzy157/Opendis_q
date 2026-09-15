@@ -67,40 +67,6 @@ def make_frank_read_source(center, b_vec, n_vec, arm_length):
     return rn, links
 
 
-def segment_distance(p1, q1, p2, q2):
-    """线段 p1-q1 与 p2-q2 的最短距离（Ericson, Real-Time Collision Detection, 5.1.9）"""
-    d1, d2, r = q1 - p1, q2 - p2, p1 - p2
-    a, e = np.dot(d1, d1), np.dot(d2, d2)
-    b, c, f = np.dot(d1, d2), np.dot(d1, r), np.dot(d2, r)
-    denom = a * e - b * b
-    s = np.clip((b * f - c * e) / denom, 0.0, 1.0) if denom > 1e-12 * a * e else 0.0
-    t = (b * s + f) / e
-    if t < 0.0:
-        t, s = 0.0, np.clip(-c / a, 0.0, 1.0)
-    elif t > 1.0:
-        t, s = 1.0, np.clip((b - c) / a, 0.0, 1.0)
-    return np.linalg.norm((p1 + s * d1) - (p2 + t * d2))
-
-
-def far_from_placed(center, arm_dir, arm_length, centers, dirs, lengths, gap):
-    """
-    判断候选源与所有已放置源的线段最短距离是否都 >= gap。
-    源都在留白后的盒内、不跨周期边界，周期镜像间距自动 >= gap，只需检查盒内距离。
-    """
-    if len(centers) == 0:
-        return True
-    d = centers - center
-    # 粗筛：中心距 >= 半臂长之和 + gap 的源不可能比 gap 更近
-    near = np.linalg.norm(d, axis=1) < (lengths + arm_length) / 2.0 + gap
-    half = 0.5 * arm_length * arm_dir
-    for j in np.nonzero(near)[0]:
-        cj = center + d[j]
-        hj = 0.5 * lengths[j] * dirs[j]
-        if segment_distance(center - half, center + half, cj - hj, cj + hj) < gap:
-            return False
-    return True
-
-
 def fcc_Ni_10um_frank_read():
 
     pyexadis.initialize()
@@ -147,7 +113,6 @@ def fcc_Ni_10um_frank_read():
     all_rn = []
     all_links = []
     centers = np.empty((N_dis, 3))
-    dirs = np.empty((N_dis, 3))
     lengths = np.empty(N_dis)
     node_offset = 0
 
@@ -155,16 +120,15 @@ def fcc_Ni_10um_frank_read():
         arm_length = rng.uniform(Ldis_min, Ldis_max)
         b_vec, n_vec = FCC_SLIP_SYSTEMS[sys_ids[i]]
         b_vec = rng.choice([-1.0, 1.0]) * b_vec  # +b / -b 随机
-        arm_dir = edge_line_direction(b_vec, n_vec)
 
-        # 中心在留白区域内随机取，保证与已放置源的线段最短距离 >= gap
+        # 中心距 >= Ldis_max + gap，保证两个源的线段之间距离 >= gap
         for _ in range(10000):
             center = rng.uniform(margin, Lbox - margin, size=3)
-            if far_from_placed(center, arm_dir, arm_length, centers[:i], dirs[:i], lengths[:i], gap):
+            if np.all(np.linalg.norm(centers[:i] - center, axis=1) >= Ldis_max + gap):
                 break
         else:
             raise RuntimeError('Cannot place Frank-Read source: enlarge the box, or reduce Ldis_max / gap')
-        centers[i], dirs[i], lengths[i] = center, arm_dir, arm_length
+        centers[i], lengths[i] = center, arm_length
 
         rn, links = make_frank_read_source(center, b_vec, n_vec, arm_length)
         links[:, 0] += node_offset
