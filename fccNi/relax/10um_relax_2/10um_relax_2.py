@@ -31,7 +31,7 @@ def fcc_Ni_10um_relax():
         "use_glide_planes": 1,
     }
     G = ExaDisNet()
-    G.read_data('/data/home/dg000246d/Opendis_q/fccNi/init/fr_2/fcc_Ni_10um_1e10_frank_read_2.data')
+    G.read_data('/data/home/dg000246d/Opendis_q/fccNi/init/10um_fr_2/fcc_Ni_10um_1e10_frank_read_2.data')
     net = DisNetManager(G)
 
     vis = None

@@ -46,7 +46,7 @@ def fcc_Ni_10um_3e3_001():
     restart_id = sys.argv[1] if len(sys.argv) > 1 else None
     if restart_id is None:
         # 初始构型：relax_1 松弛后的位错网络
-        data_filename = '/data/home/dg000246d/Opendis_q/fccNi/relax/relax_1/output/config.data'
+        data_filename = '/data/home/dg000246d/Opendis_q/fccNi/relax/10um_relax_1/output/config.23900.data'
         print(f"init from {data_filename}")
         net, restart = init_from_paradis_data_file(data_filename)
     else:
