@@ -13,10 +13,10 @@ except ImportError:
 
 
 def init_from_paradis_data_file(datafile):
-    G = ExaDisNet()
-    G.read_paradis(datafile)
-    net = DisNetManager(G)
-    restart = None
+    G = ExaDisNet()# 建一个空的 ExaDiS 位错网络
+    G.read_paradis(datafile)# 从 .data 文件读入构型
+    net = DisNetManager(G)# 交给管理器包装
+    restart = None# 续跑时传给 SimulateNetworkPerf 的 restart 参数，None 表示从头开始跑
     return net, restart
 
 
@@ -43,7 +43,7 @@ def fcc_Ni_10um_3e3_001():
     edir = np.array([0., 0., 1.])  # [001] 加载方向
     output_dir = 'output'
 
-    restart_id = sys.argv[1] if len(sys.argv) > 1 else None
+    restart_id = sys.argv[1] if len(sys.argv) > 1 else None #python 会把命令行上的内容按空格切开，放进 sys.argv python 3000_001_1.py ['3000_001_1.py'] python 3000_001_1.py 45600  ['3000_001_1.py', '45600']
     if restart_id is None:
         # 初始构型：relax_1 松弛后的位错网络
         data_filename = '/data/home/dg000246d/Opendis_q/fccNi/relax/10um_relax_1/output/config.23900.data'

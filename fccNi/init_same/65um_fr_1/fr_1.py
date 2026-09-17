@@ -83,9 +83,7 @@ def fcc_Ni_65um_frank_read():
         "rann": 0.5,
         "nextdt": 1e-12,
         "maxdt": 1e-7,
-        "split3node": 0,
         "use_glide_planes": 1,
-        "num_bcc_plane_families": 1,
     }
 
     Lbox = 65.0e-6 / state["burgmag"]  # 模拟盒子边长 (b)，65 um

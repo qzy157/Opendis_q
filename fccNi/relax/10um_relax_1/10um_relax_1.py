@@ -30,9 +30,9 @@ def fcc_Ni_10um_relax():
         "maxdt": 1e-7,
         "use_glide_planes": 1,
     }
-    G = ExaDisNet()
-    G.read_data('/data/home/dg000246d/Opendis_q/fccNi/init/10um_fr_1/fcc_Ni_10um_1e10_frank_read_1.data')
-    net = DisNetManager(G)
+    G = ExaDisNet()#新建一个空的位错网络。
+    G.read_data('/data/home/dg000246d/Opendis_q/fccNi/init/10um_fr_1/fcc_Ni_10um_1e10_frank_read_1.data')#读取 ParaDiS 格式的 .data 文件。read_data 就是 read_paradis（pyexadis_base.py:75-78）：C++ 端解析文件后生成一个新网络，替换掉 G.net 里的空网络。 
+    net = DisNetManager(G)#用管理器把网络包起来。
 
     vis = None
 
@@ -47,7 +47,7 @@ def fcc_Ni_10um_relax():
                            temperature=300.0, minChainSegments=4)
     sim = SimulateNetworkPerf(calforce=calforce, mobility=mobility, timeint=timeint,
                               collision=collision, topology=topology, remesh=remesh, cross_slip=cross_slip,
-                              vis=vis, loading_mode="stress", applied_stress=np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0]),
+                              vis=vis, loading_mode="stress", applied_stress=np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0]),#用应力控制加载，外加应力的 6 个分量全部设为 0。弛豫阶段不施加任何外载，位错只在自身应力场和线张力作用下运动，逐步收敛到力平衡、能量较低的构型。
                               max_step=100000, burgmag=state["burgmag"], state=state,
                               print_freq=1, plot_freq=2, plot_pause_seconds=0.0001,
                               write_freq=100, write_dir='output')
