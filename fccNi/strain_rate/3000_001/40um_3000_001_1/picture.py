@@ -13,7 +13,7 @@ matplotlib.use("Agg")                            # 服务器无显示器
 import matplotlib.pyplot as plt
 
 # ---- 配置 (只需修改这一行) ----
-DATA_FILE = "/data/home/dg000246d/Opendis_q/fccNi/strain_rate/3000_001/40um_3000_001_1/40um_3000_001_1_stress_strain_dens.dat"
+DATA_FILE = "/data/home/dg000246d/Opendis_q/fccNi/strain_rate/3000_011/40um_3000_011_1/40um_3000_011_1_stress_strain_dens.dat"
 
 # ---- 输出路径 (由 DATA_FILE 自动生成) ----
 OUT_DIR = os.path.dirname(DATA_FILE)
