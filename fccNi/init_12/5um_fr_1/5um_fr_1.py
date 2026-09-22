@@ -29,6 +29,18 @@ FCC_SLIP_SYSTEMS = [
 ]
 
 
+def slip_line_direction(b_unit, n_vec, theta):
+    """FR 源的线向，与 insert_frank_read_src 内部算法一致
+    （pyexadis_utils.py:65-68）：cos(theta)*b_hat + sin(theta)*(n_hat x b_hat)，恒在滑移面内。
+    b_unit 必须是已带符号的单位柏氏矢量，theta 单位为度。
+    """
+    n_hat = n_vec / np.linalg.norm(n_vec)
+    y = np.cross(n_hat, b_unit)
+    y = y / np.linalg.norm(y)
+    t = theta * np.pi / 180.0
+    return np.cos(t) * b_unit + np.sin(t) * y
+
+
 def fcc_Ni_5um_frank_read():
 
     pyexadis.initialize()
@@ -58,7 +70,7 @@ def fcc_Ni_5um_frank_read():
     L_std = 600.0     # 臂长标准差 (b)，20% 的相对涨落
     L_min = L_mean - 2.0 * L_std   # 1800 b
     L_max = L_mean + 2.0 * L_std   # 4200 b
-    # 最长臂 < Lbox/2：保证源跨周期边界后，段矢量的最小镜像判定无歧义
+    # 最长臂 < Lbox/2：逐轴 margin 可行性的保守上界（单轴 margin <= L_max/2，两侧合计 < Lbox）
     assert L_max < 0.5 * Lbox, 'Arm length too long for the box: reduce L_mean / L_std'
 
     n_sys = len(FCC_SLIP_SYSTEMS)  # 滑移系数量 12
@@ -89,11 +101,24 @@ def fcc_Ni_5um_frank_read():
             if L_min <= arm_length <= L_max:
                 break
 
-        # 源中心在盒内均匀随机；不设 margin，源可以跨越盒面
+        b_vec, n_vec = FCC_SLIP_SYSTEMS[sys_ids[i]]
+        # insert_frank_read_src 把 burg 原样写入 segs（只归一化 plane），必须传单位化的 b
+        b_unit = signs[i] * b_vec / np.linalg.norm(b_vec)
+        # 特征角：0-360 度随机。线向恒在滑移面内；先定线向才能算逐轴 margin
+        theta = rng.uniform(0.0, 360.0)
+        ldir = slip_line_direction(b_unit, n_vec, theta)
+
+        # 两个钉扎端点 = center ± (arm_length/2)*ldir。逐轴按线向的实际投影留边，
+        # 保证整根源落在盒内、不跨周期面；比统一用 L_max/2 留边掏空的体积小得多。
+        margin = 0.5 * arm_length * np.abs(ldir)
+        assert np.all(2.0 * margin < Lbox), 'Arm too long for the box along one axis'
+
+        # 源中心逐轴在 [margin, Lbox-margin] 内均匀随机
         for _ in range(10000):
-            center = rng.uniform(0.0, Lbox, size=3)
+            center = rng.uniform(margin, Lbox - margin)
             if i == 0:
                 break
+            # 源虽不跨面，贴近相对两个盒面的两个源仍是周期近邻，排斥判定仍按最小镜像：
             # closest_image 给出已放置中心相对 center 的最近周期镜像，再取模得到最小镜像距离
             img = np.array(cell.closest_image(Rref=center, R=centers[:i]))
             if np.all(np.linalg.norm(img - center, axis=1) >= min_center_dist):
@@ -101,12 +126,6 @@ def fcc_Ni_5um_frank_read():
         else:
             raise RuntimeError('Cannot place Frank-Read source: reduce min_center_dist or N_dis')
         centers[i], lengths[i] = center, arm_length
-
-        b_vec, n_vec = FCC_SLIP_SYSTEMS[sys_ids[i]]
-        # insert_frank_read_src 把 burg 原样写入 segs（只归一化 plane），必须传单位化的 b
-        b_unit = signs[i] * b_vec / np.linalg.norm(b_vec)
-        # 特征角：0-360 度随机。线向 = cos(theta)*b_hat + sin(theta)*(n_hat x b_hat)，恒在滑移面内
-        theta = rng.uniform(0.0, 360.0)
 
         # 5 节点开放线段：PINNED(0) -- FREE(1) -- FREE(2) -- FREE(3) -- PINNED(4)
         # 两端钉扎，中间三节点自由；长于 maxseg 的段由 Remesh 自动细分
@@ -117,8 +136,11 @@ def fcc_Ni_5um_frank_read():
 
     print(f"Actual dislocation density: {lengths.sum() / Lbox**3 / state['burgmag']**2:.3e} m^-2")
 
-    # 越界节点按周期边界折回盒内（write_data 本身也会折，这里显式做一次便于自检）
+    # 源完整落在盒内：所有节点坐标都应在 [0, Lbox] 内，下面的 pbc_fold 已是恒等操作
     nodes = np.array(nodes)
+    tol = 1e-6  # 浮点容差 (b)，远小于任何物理尺度
+    assert np.all((nodes[:, :3] >= -tol) & (nodes[:, :3] <= Lbox + tol)), (
+        'FR source crosses the periodic boundary')
     nodes = np.hstack((np.array(cell.pbc_fold(nodes[:, :3])), nodes[:, 3:]))
     segs = np.vstack(segs)
 
