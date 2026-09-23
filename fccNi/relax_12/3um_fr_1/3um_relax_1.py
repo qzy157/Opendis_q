@@ -27,7 +27,7 @@ def fcc_Ni_3um_relax():
         "rtol": 0.25,
         "rann": 0.5,
         "nextdt": 1e-12,
-        "maxdt": 1e-7,
+        "maxdt": 1e-9,
         "use_glide_planes": 1,
     }
     G = ExaDisNet()#新建一个空的位错网络。
@@ -38,7 +38,12 @@ def fcc_Ni_3um_relax():
 
     calforce  = CalForce(force_mode='SUBCYCLING_MODEL', state=state, Ngrid=64, cell=net.cell)
     mobility  = MobilityLaw(mobility_law='FCC_0', state=state, Medge=64103.0, Mscrew=64103.0, vmax=4000.0)  # 迁移率暂用 Cu 示例值
-    timeint   = TimeIntegration(integrator='Subcycling', rgroups=[0.0, 100.0, 600.0, 1600.0], state=state, force=calforce, mobility=mobility)
+    # 子循环分组半径必须全部小于段-段截断半径 rcnei = 8*Lbox/Ngrid = 1506 b，
+    # 否则最高组（设定全局步长的那一组）为空，步长会每步 ×1.2 失控涨到 maxdt。
+    # 取值等同 ExaDiS 的自动选取：rmax=min(maxseg,cutoff)=500，rmin=max(0.3*minseg,3*rann)=37.5
+    timeint   = TimeIntegration(integrator='Subcycling', rgroups=[0.0, 40.0, 270.0, 500.0],
+                                state=state, force=calforce, mobility=mobility,
+                                fstats='subcyc_stats.dat')
     collision = Collision(collision_mode='Retroactive', state=state)
     topology  = Topology(topology_mode='TopologyParallel', state=state, force=calforce, mobility=mobility)
     remesh    = Remesh(remesh_rule='LengthBased', state=state)
