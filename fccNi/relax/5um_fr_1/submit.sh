@@ -9,4 +9,4 @@
 module purge
 module load miniforge/25.3.1
 source activate opendis_cpu
-python 5um_relax_1.py
+python 5um_fr_1.py
