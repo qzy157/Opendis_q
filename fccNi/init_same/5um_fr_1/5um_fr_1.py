@@ -66,10 +66,10 @@ def fcc_Ni_5um_frank_read():
     print(f"Lbox = {Lbox:.1f} b, total dislocation length: {Ldis_tot:.1f} b")
 
     # 臂长服从高斯分布，截断在 +/- 2 sigma 内（重采样而非截断到边界，避免在边界堆积）
-    L_mean = 1200.0   # 臂长均值 (b)，约 300 nm；5 节点 4 段 -> 初始段长 180-420 b，落在 [minseg, maxseg] 内
-    L_std = 240.0     # 臂长标准差 (b)，20% 的相对涨落
-    L_min = L_mean - 2.0 * L_std   # 720 b
-    L_max = L_mean + 2.0 * L_std   # 1680 b
+    L_mean = 2500.0   # 臂长均值 (b)，约 623 nm ~ Lbox/8；5 节点 4 段 -> 初始段长 375-875 b，长于 maxseg 的段由 Remesh 细分
+    L_std = 500.0     # 臂长标准差 (b)，20% 的相对涨落
+    L_min = L_mean - 2.0 * L_std   # 1500 b
+    L_max = L_mean + 2.0 * L_std   # 3500 b
     # 最长臂 < Lbox/2：逐轴 margin 可行性的保守上界（单轴 margin <= L_max/2，两侧合计 < Lbox）
     assert L_max < 0.5 * Lbox, 'Arm length too long for the box: reduce L_mean / L_std'
 
