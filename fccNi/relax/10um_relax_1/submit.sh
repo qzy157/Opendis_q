@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --partition=comp
-#SBATCH --job-name=relax_1
+#SBATCH --job-name=10_relax_10um
 #SBATCH --nodes=1           # Request 1 node
 #SBATCH --ntasks=1          # Total number of tasks
 #SBATCH --cpus-per-task=48  # Number of CPU cores per task

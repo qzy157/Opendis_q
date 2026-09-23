@@ -31,7 +31,7 @@ def fcc_Ni_10um_relax():
         "use_glide_planes": 1,
     }
     G = ExaDisNet()#新建一个空的位错网络。
-    G.read_data('/data/home/dg000246d/Opendis_q/fccNi/init/10um_fr_1/fcc_Ni_10um_1e10_frank_read_1.data')#读取 ParaDiS 格式的 .data 文件。read_data 就是 read_paradis（pyexadis_base.py:75-78）：C++ 端解析文件后生成一个新网络，替换掉 G.net 里的空网络。 
+    G.read_data('/data/home/dg000246d/Opendis_q/fccNi/init_same/10um_fr_1/fcc_Ni_10um_1e10_frank_read_1.data')#读取 ParaDiS 格式的 .data 文件。read_data 就是 read_paradis（pyexadis_base.py:75-78）：C++ 端解析文件后生成一个新网络，替换掉 G.net 里的空网络。 
     net = DisNetManager(G)#用管理器把网络包起来。
 
     vis = None
