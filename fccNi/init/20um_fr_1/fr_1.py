@@ -41,7 +41,7 @@ def slip_line_direction(b_unit, n_vec, theta):
     return np.cos(t) * b_unit + np.sin(t) * y
 
 
-def fcc_Ni_3um_frank_read():
+def fcc_Ni_20um_frank_read():
 
     pyexadis.initialize()
 
@@ -155,10 +155,10 @@ def fcc_Ni_3um_frank_read():
     net = DisNetManager(G)
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    write_vtk(net, os.path.join(script_dir, 'fcc_Ni_3um_3e12_frank_read_1.vtk'), crystal='FCC')
-    write_data(net, os.path.join(script_dir, 'fcc_Ni_3um_3e12_frank_read_1.data'))
+    write_vtk(net, os.path.join(script_dir, 'fcc_Ni_20um_1e10_frank_read_1.vtk'), crystal='FCC')
+    write_data(net, os.path.join(script_dir, 'fcc_Ni_20um_1e10_frank_read_1.data'))
     pyexadis.finalize()
 
 
 if __name__ == "__main__":
-    fcc_Ni_3um_frank_read()
+    fcc_Ni_20um_frank_read()
