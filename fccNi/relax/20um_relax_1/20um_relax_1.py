@@ -12,7 +12,7 @@ except ImportError:
     raise ImportError('Cannot import pyexadis')
 
 
-def fcc_Ni_4um_relax():
+def fcc_Ni_20um_relax():
 
     pyexadis.initialize()
 
@@ -31,7 +31,7 @@ def fcc_Ni_4um_relax():
         "use_glide_planes": 1,
     }
     G = ExaDisNet()#新建一个空的位错网络。
-    G.read_data('/data/home/dg000246d/Opendis_q/fccNi/init_12/4um_fr_1/fcc_Ni_4um_3e12_frank_read_1.data')#读取 ParaDiS 格式的 .data 文件。read_data 就是 read_paradis（pyexadis_base.py:75-78）：C++ 端解析文件后生成一个新网络，替换掉 G.net 里的空网络。 
+    G.read_data('/data/home/dg000246d/Opendis_q/fccNi/init/20um_fr_1/fcc_Ni_20um_1e10_frank_read_1.data')#读取 ParaDiS 格式的 .data 文件。read_data 就是 read_paradis（pyexadis_base.py:75-78）：C++ 端解析文件后生成一个新网络，替换掉 G.net 里的空网络。 
     net = DisNetManager(G)#用管理器把网络包起来。
 
     vis = None
@@ -57,4 +57,4 @@ def fcc_Ni_4um_relax():
 
 
 if __name__ == "__main__":
-    fcc_Ni_4um_relax()
+    fcc_Ni_20um_relax()
