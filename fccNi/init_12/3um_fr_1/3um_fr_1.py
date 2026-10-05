@@ -97,7 +97,7 @@ def fcc_Ni_3um_frank_read():
     for i in range(N_dis):
         # 高斯臂长，落在 [L_min, L_max] 之外就重采样
         while True:
-            arm_length = rng.normal(L_mean, L_std)
+            arm_length = rng.normal(L_mean, L_std)#高斯分布rng.normal(loc, scale)
             if L_min <= arm_length <= L_max:
                 break
 

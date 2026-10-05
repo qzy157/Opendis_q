@@ -66,23 +66,30 @@ def fcc_Ni_3um_frank_read():
     print(f"Lbox = {Lbox:.1f} b, total dislocation length: {Ldis_tot:.1f} b")
 
     # 臂长服从高斯分布，截断在 +/- 2 sigma 内（重采样而非截断到边界，避免在边界堆积）
-    L_mean = 3000.0   # 臂长均值 (b)，约 747 nm ~ Lbox/4
-    L_std = 600.0     # 臂长标准差 (b)，20% 的相对涨落
-    L_min = L_mean - 2.0 * L_std   # 1800 b
-    L_max = L_mean + 2.0 * L_std   # 4200 b
-    # 最长臂 < Lbox/2：逐轴 margin 可行性的保守上界（单轴 margin <= L_max/2，两侧合计 < Lbox）
-    assert L_max < 0.5 * Lbox, 'Arm length too long for the box: reduce L_mean / L_std'
+    L_mean = 1.0 / np.sqrt(rho) / state["burgmag"]  # 臂长均值 = 平均位错间距 1/sqrt(rho)：10 um ~ 40160 b ~ Lbox/2
+    L_std = 0.2 * L_mean                             # 臂长标准差 (b)，20% 的相对涨落
+    L_min = L_mean - 2.0 * L_std   # ~24096 b
+    L_max = L_mean + 2.0 * L_std   # ~56225 b
+    # {111} 面内单位线向在任一坐标轴上的分量 <= sqrt(2/3)，故单轴投影 <= L_max*sqrt(2/3)，
+    # 须小于 Lbox 才能逐轴留 margin 不跨周期面
+    assert L_max * np.sqrt(2.0 / 3.0) < Lbox, 'Arm length too long for the box: reduce L_mean / L_std'
 
     n_sys = len(FCC_SLIP_SYSTEMS)  # 滑移系数量 12
-    # 先按平均臂长估源数，再向 12 取整：12 个滑移系严格等量分布
-    N_dis = int(round(Ldis_tot / L_mean / n_sys)) * n_sys
-    print(f"Generating {N_dis} Frank-Read sources ({N_dis // n_sys} per slip system)")
+    # 按平均臂长估源数（rho=1e10、20 um 盒子下约 8 个）
+    N_dis = int(round(Ldis_tot / L_mean))
+    print(f"Generating {N_dis} Frank-Read sources")
 
     min_center_dist = 600.0  # 源中心之间的最小间距 (b)，按周期最小镜像判定
     rng = np.random.default_rng(seed=42)
 
-    # 每个滑移系出现 N_dis/12 次，再整体打乱 -> 各滑移系源数严格相等
-    sys_ids = rng.permutation(np.tile(np.arange(n_sys), N_dis // n_sys))
+    if N_dis <= n_sys:
+        # 源数不超过 12：随机挑 N_dis 个互不相同的滑移系，每个一个源
+        sys_ids = rng.permutation(n_sys)[:N_dis]
+    else:
+        # 每个滑移系先各出现 N_dis//12 次，余数随机补不同滑移系，再整体打乱
+        sys_ids = rng.permutation(np.concatenate([
+            np.tile(np.arange(n_sys), N_dis // n_sys),
+            rng.choice(n_sys, N_dis % n_sys, replace=False)]))
     # +b / -b 各占一半后打乱，使净伯氏矢量尽量中性
     signs = rng.permutation(np.concatenate([np.ones(N_dis // 2),
                                             -np.ones(N_dis - N_dis // 2)]))
