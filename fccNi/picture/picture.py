@@ -11,9 +11,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # ================== 路径设置（绝对路径，请按实际修改） ==================
-DATA_FILE = r"/data/home/dg000246d/Opendis_q/fccNi/picture/20um/output/stress_strain_dens.dat"          # 输入数据
-OUT_STRESS = r"/data/home/dg000246d/Opendis_q/fccNi/picture/20um/strain_stress.png"       # 输出图1
-OUT_DENSITY = r"/data/home/dg000246d/Opendis_q/fccNi/picture/20um/strain_density.png"     # 输出图2
+DATA_FILE = r"/data/home/dg000246d/Opendis_q/fccNi/strain_rate/3000_001/20um_3000_001_1/rgroups/output/stress_strain_dens.dat"          # 输入数据
+OUT_STRESS = r"/data/home/dg000246d/Opendis_q/fccNi/picture/20um/rgroups/strain_stress.png"       # 输出图1
+OUT_DENSITY = r"/data/home/dg000246d/Opendis_q/fccNi/picture/20um/rgroups/strain_density.png"     # 输出图2
 # =====================================================================
 
 
