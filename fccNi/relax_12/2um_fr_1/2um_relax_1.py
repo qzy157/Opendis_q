@@ -41,7 +41,7 @@ def fcc_Ni_3um_relax():
     # 子循环分组半径必须全部小于段-段截断半径 rcnei = 8*Lbox/Ngrid = 1506 b，
     # 否则最高组（设定全局步长的那一组）为空，步长会每步 ×1.2 失控涨到 maxdt。
     # 取值等同 ExaDiS 的自动选取：rmax=min(maxseg,cutoff)=500，rmin=max(0.3*minseg,3*rann)=37.5
-    timeint   = TimeIntegration(integrator='Subcycling', rgroups=[0.0, 40.0, 270.0, 500.0],
+    timeint   = TimeIntegration(integrator='Subcycling', rgroups=[0.0, 100.0, 600.0, 1600.0],
                                 state=state, force=calforce, mobility=mobility,
                                 fstats='subcyc_stats.dat')
     collision = Collision(collision_mode='Retroactive', state=state)
