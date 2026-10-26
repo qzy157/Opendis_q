@@ -69,7 +69,7 @@ def fcc_Ni_3um_3e3_001():
     #                        temperature=300.0, minChainSegments=4)
 
     sim = SimulateNetworkPerf(calforce=calforce, mobility=mobility, timeint=timeint,
-                              collision=collision, topology=topology, remesh=remesh, cross_slip=cross_slip,
+                              collision=collision, topology=topology, remesh=remesh, cross_slip=None,
                               vis=vis, loading_mode='strain_rate', erate=erate, edir=edir,
                               max_strain=0.1, burgmag=state["burgmag"], state=state,  # |strain| 达到 0.1 停止
                               print_freq=1, plot_freq=2, plot_pause_seconds=0.0001,

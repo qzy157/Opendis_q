@@ -51,7 +51,7 @@ def fcc_Ni_3um_relax():
     # cross_slip = CrossSlip(cross_slip_mode='FCCWansheng', state=state, force=calforce,
     #                        temperature=300.0, minChainSegments=4)
     sim = SimulateNetworkPerf(calforce=calforce, mobility=mobility, timeint=timeint,
-                              collision=collision, topology=topology, remesh=remesh, cross_slip=cross_slip,
+                              collision=collision, topology=topology, remesh=remesh, cross_slip=None,
                               vis=vis, loading_mode="stress", applied_stress=np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0]),#用应力控制加载，外加应力的 6 个分量全部设为 0。弛豫阶段不施加任何外载，位错只在自身应力场和线张力作用下运动，逐步收敛到力平衡、能量较低的构型。
                               max_step=100000, burgmag=state["burgmag"], state=state,
                               print_freq=1, plot_freq=2, plot_pause_seconds=0.0001,
