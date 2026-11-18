@@ -8,8 +8,8 @@ import pyexadis
 from pyexadis_utils import read_paradis, write_vtk
 
 # ========== 在这里修改路径 ==========
-input_dir  = '/data/home/dg000246d/Opendis_q/fccNi/strain_rate/3000_001/4um_3000_001_1/output'
-output_dir = '/data/home/dg000246d/Opendis_q/fccNi/strain_rate/3000_001/4um_3000_001_1/vtk'
+input_dir  = '/data/home/dg000246d/Opendis_q/fccNi/strain_rate/3000_001/2um_3000_001_1/output'
+output_dir = '/data/home/dg000246d/Opendis_q/fccNi/strain_rate/3000_001/2um_3000_001_1/rgroups_vtk'
 # ====================================
 
 def config_index(path):
